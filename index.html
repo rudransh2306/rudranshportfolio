@@ -338,7 +338,24 @@
   }
 
   /* ── SKILLS ── */
-  #skills { background: var(--bg); }
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg); }
+  .project-card::before { display: none; }
+  .project-card { margin-bottom: 0; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 16px; }
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--blue);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 100px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .project-link:hover { border-color: var(--blue); background: var(--glow); }
+
+  #skills { background: var(--bg2); }
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   .skill-card {
     background: var(--bg3);
@@ -501,6 +518,7 @@
   <div class="nav-logo">rp.dev</div>
   <div class="nav-links">
     <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#highlights">Highlights</a>
     <a href="#contact">Contact</a>
@@ -611,6 +629,38 @@
         </ul>
         <div class="exp-tags">
           <span class="exp-tag">Java</span><span class="exp-tag">Spring Boot</span><span class="exp-tag">NodeJS</span><span class="exp-tag">ExpressJS</span><span class="exp-tag">MySQL</span><span class="exp-tag">MongoDB</span><span class="exp-tag">Redis</span><span class="exp-tag">Jenkins</span><span class="exp-tag">Docker</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">// building</div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Products I design, build and run end to end.</p>
+    <div class="fade-in">
+
+      <div class="exp-card project-card">
+        <div class="exp-header">
+          <div class="exp-role">ExtraKhaata <span class="exp-badge">LIVE PILOT</span></div>
+          <div class="exp-date">Sep 2026 – Present</div>
+        </div>
+        <div class="exp-company">Founder &amp; Developer · WhatsApp AI assistant for contractors in India</div>
+        <div class="project-links">
+          <a href="https://extrakhaata.com" target="_blank" rel="noopener" class="project-link">extrakhaata.com ↗</a>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built a <strong>WhatsApp bot and web app</strong> that lets contractors record extra work, make quotes and get the customer's approval on WhatsApp before the work starts, then track what is paid and due.</li>
+          <li>Designed a <strong>multilingual LLM pipeline (Google Gemini, structured JSON output)</strong> that understands English, Hinglish and Hindi text, voice notes and photos of handwritten lists; all money calculations stay in deterministic code, with a rule-based fallback for every AI call.</li>
+          <li>Built an <strong>evaluation set of 150 labeled messages</strong> in 3 languages: the AI pipeline gets <strong>91% fully correct</strong> (English 96%, Hindi 90%, Hinglish 88%) vs <strong>17%</strong> for the rule-based fallback, at a <strong>median latency of 1.4 s</strong>.</li>
+          <li>Added <strong>automated conversation tests</strong> that replay real pilot WhatsApp chats against a throwaway database, plus an AI regression suite run before every release; signed webhooks, hashed login tokens and a strict CSP.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Node.js</span><span class="exp-tag">Express</span><span class="exp-tag">PostgreSQL</span><span class="exp-tag">React</span><span class="exp-tag">Gemini API</span><span class="exp-tag">WhatsApp Cloud API</span><span class="exp-tag">LLM Evals</span><span class="exp-tag">Supabase</span><span class="exp-tag">Render</span>
         </div>
       </div>
 
@@ -778,6 +828,7 @@
     'backend_engineer --java --node',
     'aws_architect --scale=production',
     'startup_founder --exit=acquired',
+    'ai_builder --whatsapp --gemini',
     'backend_engineer --java --node',
   ];
   let pi = 0, ci = 0, deleting = false;
