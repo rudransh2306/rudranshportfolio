@@ -540,7 +540,7 @@
       <span id="typed-text"></span><span class="cursor"></span>
     </div>
     <p class="hero-desc">
-      Backend engineer with 3+ years building production systems at Ericsson and Amazon — from 911 call routing to recommendation pipelines serving millions.
+      Backend engineer with 3+ years building production systems at Ericsson and Amazon — from fault-tolerant telecom compliance platforms on OpenShift to recommendation pipelines serving millions.
     </p>
     <div class="hero-cta">
       <a href="mailto:rudranshprem1983@yahoo.com" class="btn-primary">
@@ -562,8 +562,8 @@
     <div class="stat-label">Years Experience</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">99.89<sup>%</sup></div>
-    <div class="stat-label">Call Routing Accuracy</div>
+    <div class="stat-num">10</div>
+    <div class="stat-label">Microservices Owned (Team of 3)</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">8M<sup>+</sup></div>
@@ -590,13 +590,15 @@
         </div>
         <div class="exp-company">Ericsson · Bangalore</div>
         <ul class="exp-bullets">
-          <li>Built and maintained backend APIs end-to-end using <strong>Java/Spring Boot</strong> and <strong>NodeJS</strong> — owned the full feature lifecycle for a <strong>911/711 emergency call routing system</strong> achieving 99.89% accuracy.</li>
-          <li>Comprehensive testing with <strong>JUnit, Mockito, and Postman/Newman</strong>; practiced TDD throughout; built CI/CD pipelines via Jenkins and GitHub Actions for automated deployments.</li>
-          <li>Designed RESTful APIs with robust error handling; optimized <strong>PostgreSQL</strong> queries and applied <strong>Redis caching</strong> for sub-50ms p95 lookups; used <strong>Apache Kafka</strong> for high-throughput async pipelines — improving spam detection from 78% to ~98%.</li>
-          <li>Deployed on <strong>AWS (Lambda, ECS, Fargate, SNS/SQS)</strong> with Docker & Kubernetes; monitored production via Splunk and performed root-cause analysis.</li>
+          <li><strong>Architecture:</strong> Co-designed a highly available, fault-tolerant microservices platform for national telecom compliance as one of 3 engineers owning 10 services on <strong>Red Hat OpenShift</strong> end to end; split services by business capability so each scales, deploys and fails independently, with clear data flow, caching strategy and failure boundaries.</li>
+          <li><strong>Consistent data migration:</strong> Replaced manual compliance migration with a 3-stage pipeline (secure ingest → scheduled processing → compliance validation) moving data from legacy CTree storage to <strong>Oracle</strong> every 5 seconds; atomic batches roll back cleanly on failure, so legally regulated data is never left partial.</li>
+          <li><strong>Strong consistency without DB bottlenecks:</strong> Prevented order corruption under concurrent load with fine-grained per-key pessimistic locking (Semaphore per order ID in a ConcurrentHashMap), serializing only conflicting writes while unrelated orders run in parallel, avoiding database lock contention and retries.</li>
+          <li><strong>Caching &amp; self-healing:</strong> Designed an <strong>Infinispan</strong> distributed cache using the cache-aside pattern with Oracle as the source of truth: reads load on a miss, and writes update Oracle then invalidate the cache entry, preventing stale overwrites from racing writes while offloading reads from Oracle. Paired it with <strong>Kubernetes health probes</strong> so OpenShift detects failures, restarts unhealthy pods and routes traffic only to healthy ones.</li>
+          <li><strong>AI-assisted engineering:</strong> Adopted <strong>Claude Code</strong> in the team's workflow with a project context file (CLAUDE.md) encoding service boundaries, coding standards and security rules; used it to generate JUnit/Mockito test suites toward the 80% coverage gate, analyze legacy CTree code during migration, and speed up root-cause analysis of production issues, with every change human-reviewed and gated by CI.</li>
+          <li><strong>Reliability engineering:</strong> Added <strong>Prometheus/Micrometer</strong> observability and an 80% coverage gate (JaCoCo + SonarQube) in CI/CD for a team with no dedicated QA; hardened endpoints with API-key auth, CORS, path-traversal defenses and RBAC; built a self-service configuration tool (React + Java) so ops staff manage batch schedules without engineering requests.</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">Java</span><span class="exp-tag">Spring Boot</span><span class="exp-tag">NodeJS</span><span class="exp-tag">Kafka</span><span class="exp-tag">PostgreSQL</span><span class="exp-tag">Redis</span><span class="exp-tag">AWS</span><span class="exp-tag">Docker</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">TDD</span>
+          <span class="exp-tag">Java 17</span><span class="exp-tag">Spring Boot 3</span><span class="exp-tag">OpenShift</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">Infinispan</span><span class="exp-tag">Oracle</span><span class="exp-tag">React</span><span class="exp-tag">Node.js</span><span class="exp-tag">Prometheus</span><span class="exp-tag">Claude Code</span><span class="exp-tag">GitLab CI/CD</span><span class="exp-tag">Docker</span>
         </div>
       </div>
 
@@ -736,14 +738,14 @@
     <p class="section-sub">Numbers that tell the story.</p>
     <div class="hl-grid fade-in">
       <div class="hl-card">
-        <div class="hl-num">99.89%</div>
-        <div class="hl-label">Call Routing Accuracy</div>
-        <div class="hl-desc">911/711 emergency call routing system with near-perfect accuracy built at Ericsson for real-time telecom traffic.</div>
+        <div class="hl-num">10</div>
+        <div class="hl-label">Microservices, Team of 3</div>
+        <div class="hl-desc">Co-designed a highly available, fault-tolerant telecom compliance platform at Ericsson and owned its 10 services on Red Hat OpenShift end to end.</div>
       </div>
       <div class="hl-card">
-        <div class="hl-num">78→98%</div>
-        <div class="hl-label">Spam Detection Uplift</div>
-        <div class="hl-desc">Improved caller reputation scoring accuracy by 20 points using Kafka async pipelines and Redis caching at sub-50ms p95.</div>
+        <div class="hl-num">Every 5s</div>
+        <div class="hl-label">Consistent Data Migration</div>
+        <div class="hl-desc">3-stage pipeline moving regulated data from legacy CTree storage to Oracle; atomic batches roll back cleanly, so data is never left partial.</div>
       </div>
       <div class="hl-card">
         <div class="hl-num">~$160M</div>
@@ -761,9 +763,9 @@
         <div class="hl-desc">Grew and ran the backend solo as CTO of a startup that was acquired by TATA — from zero to exit.</div>
       </div>
       <div class="hl-card">
-        <div class="hl-num">&lt;50ms</div>
-        <div class="hl-label">p95 Lookup Latency</div>
-        <div class="hl-desc">Achieved sub-50ms p95 at Ericsson through PostgreSQL query optimization and strategic Redis cache layers.</div>
+        <div class="hl-num">80%</div>
+        <div class="hl-label">Coverage Gate in CI/CD</div>
+        <div class="hl-desc">JaCoCo + SonarQube gate and Prometheus/Micrometer observability for an Ericsson team with no dedicated QA.</div>
       </div>
     </div>
   </div>
